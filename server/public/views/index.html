@@ -28,7 +28,7 @@
 
         <div ng-repeat="task in taskData" class="task complete-{{task.complete}} well col-md-3" ng-click="markDone(task)">
            <p class="lead"> {{ task.text }} </p>
-            <button class='btn btn-danger delete' ng-click="deleteMe(task.id)">X</button>
+            <button class='btn btn-danger delete' ng-click="deleteMe(task._id,$event)">X</button>
         </div>
     </div>
 
