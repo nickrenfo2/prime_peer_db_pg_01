@@ -6,20 +6,11 @@ module.exports = function(grunt){
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
-                src: 'client/scripts/app.js',
+                src: 'client/scripts/angapp.js',
                 dest: 'server/public/assets/scripts/app.min.js'
             }
         },
         copy: {
-            jquery: {
-                expand: true,
-                cwd: 'node_modules',
-                src: [
-                    "jquery/dist/jquery.min.js",
-                    "jquery/dist/jquery.min.map"
-                ],
-                "dest": "server/public/vendors/"
-            },
             bootstrap: {
                 expand: true,
                 cwd: 'node_modules',

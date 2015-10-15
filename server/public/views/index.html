@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en" ng-app="todoApp">
+<head>
     <meta charset="UTF-8">
-    <title>Postgres TODO App</title>
+    <title>TODO App Refactor</title>
 
     <!--STYLES-->
     <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/styles/style.css">
 
 </head>
-<body>
+<body ng-controller="MainController">
     <div class="container">
-        <button class="btn btn-info get">Get Info</button>
+        <button class="btn btn-info get" ng-click="getData()">Get Info</button>
 
         <div class="col-md-4">
-            <form id="taskForm" method="post">
+            <form id="taskForm" method="post" ng-submit="createTask()">
                 <div>
                     <label for="text">Task:</label>
-                    <input type="text" name="text" id="text"/>
+                    <input type="text" name="text" id="text" ng-model="newTodo.text"/>
                     <input type="submit" class="btn btn-info post" value="Create Task"/>
                 </div>
             </form>
@@ -26,12 +26,16 @@
 
     <div id="someContainer" class="container">
 
+        <div ng-repeat="task in taskData" class="task complete-{{task.complete}} well col-md-3" ng-click="markDone(task)">
+           <p class="lead"> {{ task.text }} </p>
+            <button class='btn btn-danger delete' ng-click="deleteMe(task.id)">X</button>
+        </div>
     </div>
 
 
 
     <!--SCRIPTS-->
-    <script type="text/javascript" src="/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular.min.js"></script>
     <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
 </body>
 </html>

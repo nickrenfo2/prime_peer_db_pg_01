@@ -5,7 +5,7 @@ var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/ex
 
 router.post('/todos', function(req, res) {
     var results = [];
-
+    console.log(req.body);
     // Grab data from http request
     var data = {text: req.body.text, complete: false};
 
@@ -67,6 +67,8 @@ router.get('/todos', function(req, res) {
 });
 
 router.put('/todos/:todo_id', function(req, res) {
+
+    console.log("Server is running markDone");
 
     var results = [];
 
